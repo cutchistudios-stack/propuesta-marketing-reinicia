@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockups A/B — LinkedIn Ads | Reinicia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --gold: #FFC809;
+            --teal: #39C0CE;
+            --dark-blue: #005A88;
+            --light-teal: #D0E9E6;
+            --white: #FFFFFF;
+            --dark: #0a0f1a;
+            --dark-card: #111827;
+            --linkedin-blue: #0a66c2;
+            --linkedin-bg: #f4f2ee;
+            --linkedin-text: #000000e6;
+            --linkedin-text2: #00000099;
+            --linkedin-border: #e0dfdc;
+            --linkedin-hover: #f0eeea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .top-bar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-bar-logo img {
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        .top-bar-logo span {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+        }
+
+        .top-bar-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(255,200,9,0.1);
+            color: var(--gold);
+            border: 1px solid rgba(255,200,9,0.2);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 100px 40px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(57,192,206,0.1);
+            border: 1px solid rgba(57,192,206,0.3);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, #FFC809, #f0b400);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.55);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* ===== AB CONTAINER ===== */
+        .ab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .ab-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .ab-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(57,192,206,0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .ab-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .ab-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .ab-label.variant-a { color: var(--teal); }
+        .ab-label.variant-b { color: var(--gold); }
+
+        .ab-label i {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .ab-label.variant-a i { background: rgba(57,192,206,0.12); }
+        .ab-label.variant-b i { background: rgba(255,200,9,0.12); }
+
+        .ab-hypothesis {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 500;
+            background: rgba(255,255,255,0.04);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .ab-card-body {
+            padding: 0;
+        }
+
+        /* ===== LINKEDIN FEED MOCKUP ===== */
+        .linkedin-feed {
+            background: var(--linkedin-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--linkedin-text);
+        }
+
+        .linkedin-post {
+            border-bottom: 1px solid var(--linkedin-border);
+        }
+
+        .linkedin-post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+        }
+
+        .linkedin-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .linkedin-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--linkedin-border);
+            overflow: hidden;
+            background: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .linkedin-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .linkedin-author-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--linkedin-text);
+            line-height: 1.2;
+        }
+
+        .linkedin-author-info p {
+            font-size: 12px;
+            color: var(--linkedin-text2);
+            line-height: 1.3;
+        }
+
+        .linkedin-follow {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--linkedin-blue);
+            border: 1px solid var(--linkedin-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .linkedin-follow:hover {
+            background: rgba(10,102,194,0.08);
+        }
+
+        .linkedin-post-text {
+            padding: 0 16px 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .linkedin-post-text .hashtag {
+            color: var(--linkedin-blue);
+            font-weight: 500;
+        }
+
+        .linkedin-post-image {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .linkedin-post-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== AD OVERLAY ON IMAGE ===== */
+        .ad-image-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+
+        .ad-overlay-dark {
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 100%);
+        }
+
+        .ad-overlay-brand {
+            background: linear-gradient(135deg, rgba(0,90,136,0.9) 0%, rgba(57,192,206,0.7) 100%);
+        }
+
+        .ad-overlay-gold {
+            background: linear-gradient(135deg, rgba(0,40,60,0.92) 0%, rgba(255,200,9,0.6) 100%);
+        }
+
+        .ad-overlay-compliance {
+            background: linear-gradient(to top, rgba(0,50,80,0.95) 0%, rgba(0,90,136,0.4) 50%, transparent 100%);
+        }
+
+        .ad-headline {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(18px, 2.5vw, 28px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .ad-subheadline {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(12px, 1.3vw, 15px);
+            color: rgba(255,255,255,0.85);
+            line-height: 1.4;
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+
+        .ad-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            background: var(--gold);
+            box-shadow: 0 4px 15px rgba(255,200,9,0.4);
+            width: fit-content;
+        }
+
+        .ad-cta-button.white {
+            background: white;
+            color: var(--dark-blue);
+        }
+
+        .ad-cta-button.outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        /* ===== SPONSORED TAG ===== */
+        .sponsored-tag {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--linkedin-text2);
+            padding: 0 16px 8px;
+        }
+
+        .sponsored-tag i { font-size: 10px; }
+
+        /* ===== LINKEDIN ENGAGEMENT BAR ===== */
+        .linkedin-engagement {
+            padding: 8px 16px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px solid var(--linkedin-border);
+            margin-top: 0;
+        }
+
+        .linkedin-reactions {
+            display: flex;
+            margin-right: 6px;
+        }
+
+        .linkedin-reactions span {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            margin-right: -4px;
+            border: 1px solid white;
+        }
+
+        .linkedin-reactions .r-like { background: #0a66c2; }
+        .linkedin-reactions .r-love { background: #e74c3c; }
+        .linkedin-reactions .r-insight { background: #f39c12; }
+
+        .linkedin-engagement span.eng-text {
+            font-size: 12px;
+            color: var(--linkedin-text2);
+        }
+
+        .linkedin-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 4px 8px 12px;
+        }
+
+        .linkedin-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: var(--linkedin-text2);
+            font-weight: 500;
+            padding: 10px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            background: none;
+            flex: 1;
+            justify-content: center;
+            font-family: inherit;
+        }
+
+        .linkedin-action-btn:hover {
+            background: var(--linkedin-hover);
+            color: var(--linkedin-text);
+        }
+
+        .linkedin-action-btn i {
+            font-size: 18px;
+        }
+
+        /* ===== METRICS BAR ===== */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.06);
+            margin-top: 0;
+        }
+
+        .metric-item {
+            background: var(--dark-card);
+            padding: 16px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .metric-value.teal { color: var(--teal); }
+        .metric-value.gold { color: var(--gold); }
+        .metric-value.green { color: #2ecc71; }
+
+        .metric-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 500;
+        }
+
+        /* ===== INMAIL MOCKUP ===== */
+        .inmail-mockup {
+            background: var(--linkedin-bg);
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+        }
+
+        .inmail-header {
+            background: white;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--linkedin-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .inmail-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .inmail-header-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--linkedin-text);
+        }
+
+        .inmail-header-info p {
+            font-size: 12px;
+            color: var(--linkedin-text2);
+        }
+
+        .inmail-subject {
+            background: #effcf6;
+            padding: 10px 18px;
+            border-bottom: 1px solid var(--linkedin-border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #0e7a5b;
+            font-weight: 500;
+        }
+
+        .inmail-body {
+            background: white;
+            padding: 24px 18px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--linkedin-text);
+        }
+
+        .inmail-body p { margin-bottom: 14px; }
+
+        .inmail-body .inmail-signature {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--linkedin-border);
+            font-size: 13px;
+            color: var(--linkedin-text2);
+        }
+
+        .inmail-body .inmail-signature strong {
+            color: var(--linkedin-text);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .inmail-cta-row {
+            background: white;
+            padding: 0 18px 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .inmail-cta {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .inmail-cta.primary {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+        }
+
+        .inmail-cta.secondary {
+            background: transparent;
+            color: var(--linkedin-text2);
+            border: 1px solid var(--linkedin-border);
+        }
+
+        /* ===== SEPARATOR ===== */
+        .section-separator {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+            margin: 0 40px;
+        }
+
+        /* ===== RECOMMENDATION BOX ===== */
+        .recommendation-box {
+            background: linear-gradient(135deg, rgba(57,192,206,0.08) 0%, rgba(255,200,9,0.05) 100%);
+            border: 1px solid rgba(57,192,206,0.15);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .recommendation-box h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .recommendation-item {
+            display: flex;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+        }
+
+        .recommendation-item .rec-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .rec-icon.teal { background: rgba(57,192,206,0.12); color: var(--teal); }
+        .rec-icon.gold { background: rgba(255,200,9,0.12); color: var(--gold); }
+
+        .recommendation-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .recommendation-item p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+
+        /* ===== EMAIL COLD OUTREACH ===== */
+        .email-mockup {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .email-header-bar {
+            background: var(--dark-blue);
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .email-header-bar span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .email-step-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .email-step-badge.s1 { background: var(--teal); }
+        .email-step-badge.s2 { background: var(--gold); color: var(--dark); }
+        .email-step-badge.s3 { background: var(--dark-blue); }
+
+        .email-subject-line {
+            padding: 14px 18px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--linkedin-text);
+        }
+
+        .email-body-content {
+            padding: 18px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #444;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .email-body-content p { margin-bottom: 12px; }
+
+        .email-body-content .email-cta-inline {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--dark-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .ab-grid { grid-template-columns: 1fr; }
+            .recommendation-grid { grid-template-columns: 1fr; }
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 100px 20px 40px; }
+            .top-bar { padding: 12px 20px; }
+            .section-separator { margin: 0 20px; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s !important; }
+        .delay-2 { transition-delay: 0.2s !important; }
+        .delay-3 { transition-delay: 0.3s !important; }
+        .delay-4 { transition-delay: 0.4s !important; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar">
+        <div class="top-bar-logo">
+            <img src="https://reinicia.com.ec/wp-content/uploads/2022/05/logoReinicia.png" alt="Reinicia">
+            <span>Mockups LinkedIn Ads &mdash; Pruebas A/B</span>
+        </div>
+        <div class="top-bar-badge">
+            <i class="fas fa-flask"></i>
+            Versi&oacute;n Testing
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- SECTION 1: LINKEDIN SPONSORED CONTENT — BRAND AWARENESS -->
+    <!-- ================================================================== -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fab fa-linkedin-in"></i>
+                Prueba A/B — Sponsored Content
+            </div>
+            <h2 class="section-title">
+                LinkedIn Ads: <span class="highlight">Social Proof & Autoridad</span>
+            </h2>
+            <p class="section-desc">
+                Dos variantes de Sponsored Content para campa&ntilde;a de posicionamiento en LinkedIn. La Variante A enfoca en la autoridad de marca y la Variante B en el dolor regulatorio del cliente.
+            </p>
+        </div>
+
+        <div class="ab-grid">
+            <!-- ===== VARIANT A ===== -->
+            <div class="ab-card fade-in delay-1">
+                <div class="ab-card-header">
+                    <div class="ab-label variant-a">
+                        <i>V</i> Variante A &mdash; Autoridad de Marca
+                    </div>
+                    <span class="ab-hypothesis">Hip&oacute;tesis: Mayor CTR con Social Proof</span>
+                </div>
+                <div class="ab-card-body">
+                    <div class="linkedin-feed">
+                        <div class="linkedin-post">
+                            <div class="linkedin-post-header">
+                                <div class="linkedin-author">
+                                    <div class="linkedin-avatar" style="background:var(--dark-blue); font-size:11px;">R</div>
+                                    <div class="linkedin-author-info">
+                                        <h4>Reinicia <span style="color:var(--linkedin-blue); font-size:13px;">&#8226; 1st</span></h4>
+                                        <p>Sistema Colectivo RAEE Ecuador<br><span style="font-size:11px;">Sponsored &#183; <i class="fas fa-globe" style="font-size:10px;"></i></span></p>
+                                    </div>
+                                </div>
+                                <button class="linkedin-follow">+ Seguir</button>
+                            </div>
+
+                            <div class="sponsored-tag">
+                                <i class="fas fa-ad"></i> Promocionado
+                            </div>
+
+                            <div class="linkedin-post-text">
+                                &#127775; <strong>Empresas l&iacute;deres de Ecuador ya conf&iacute;an en Reinicia.</strong><br><br>
+                                Con 35+ clientes activos, somos el sistema colectivo #1 en gesti&oacute;n de RAEE. &#9989;<br><br>
+                                &#128205; &ldquo;Reinicia nos permiti&oacute; cumplir con la Ley REP de forma profesional y eficiente.&rdquo; &mdash; Gerente de Importaciones<br><br>
+                                &#127919; &iquest;Tu empresa cumple con la normativa de residuos electr&oacute;nicos?<br><br>
+                                <span class="hashtag">#Gesti&oacute;nRAEE</span> <span class="hashtag">#LeyREP</span> <span class="hashtag">#SostenibilidadEcuador</span> <span class="hashtag">#ImportadoresEc</span>
+                            </div>
+
+                            <div class="linkedin-post-image">
+                                <img src="img-linkedin-sostenibilidad.png" alt="Sostenibilidad corporativa">
+                                <div class="ad-image-overlay ad-overlay-brand">
+                                    <div class="ad-headline">Tu importaci&oacute;n es responsable, tu negocio es sostenible.</div>
+                                    <div class="ad-subheadline">Reinicia &mdash; El sistema colectivo l&iacute;der en gesti&oacute;n de RAEE en Ecuador</div>
+                                    <div class="ad-cta-button">
+                                        <i class="fas fa-shield-alt"></i> Verific&aacute; tu Cumplimiento
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="linkedin-engagement">
+                                <div class="linkedin-reactions">
+                                    <span class="r-like">&#128077;</span>
+                                    <span class="r-love">&#10084;&#65039;</span>
+                                    <span class="r-insight">&#128161;</span>
+                                </div>
+                                <span class="eng-text">142</span>
+                            </div>
+                            <div class="linkedin-actions">
+                                <button class="linkedin-action-btn"><i class="fas fa-thumbs-up"></i> Me gusta</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-comment"></i> Comentar</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-retweet"></i> Repostear</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-bar">
+                    <div class="metric-item">
+                        <div class="metric-value teal">2.8%</div>
+                        <div class="metric-label">CTR Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value gold">$3.20</div>
+                        <div class="metric-label">CPC Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value green">85K</div>
+                        <div class="metric-label">Impresiones</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value teal">2.4K</div>
+                        <div class="metric-label">Clics</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== VARIANT B ===== -->
+            <div class="ab-card fade-in delay-2">
+                <div class="ab-card-header">
+                    <div class="ab-label variant-b">
+                        <i>B</i> Variante B &mdash; Dolor Regulatorio
+                    </div>
+                    <span class="ab-hypothesis">Hip&oacute;tesis: Mayor conversi&oacute;n con urgencia</span>
+                </div>
+                <div class="ab-card-body">
+                    <div class="linkedin-feed">
+                        <div class="linkedin-post">
+                            <div class="linkedin-post-header">
+                                <div class="linkedin-author">
+                                    <div class="linkedin-avatar" style="background:var(--dark-blue); font-size:11px;">R</div>
+                                    <div class="linkedin-author-info">
+                                        <h4>Reinicia <span style="color:var(--linkedin-blue); font-size:13px;">&#8226; 1st</span></h4>
+                                        <p>Sistema Colectivo RAEE Ecuador<br><span style="font-size:11px;">Sponsored &#183; <i class="fas fa-globe" style="font-size:10px;"></i></span></p>
+                                    </div>
+                                </div>
+                                <button class="linkedin-follow">+ Seguir</button>
+                            </div>
+
+                            <div class="sponsored-tag">
+                                <i class="fas fa-ad"></i> Promocionado
+                            </div>
+
+                            <div class="linkedin-post-text">
+                                &#9888;&#65039; <strong>&iquest;Sab&iacute;as que las sanciones por incumplimiento de la Ley REP pueden llegar hasta $50,000 USD?</strong><br><br>
+                                Si tu empresa importa equipos el&eacute;ctricos o electr&oacute;nicos, estás obligado a gestionar sus residuos de forma responsable.<br><br>
+                                &#128218; La Ley de Gesti&oacute;n Integral de Residuos S&oacute;lidos exige un plan de gesti&oacute;n de RAEE aprobado por el Ministerio del Ambiente.<br><br>
+                                &#9989; <strong>Reinicia lo hace simple.</strong> Nos encargamos de todo: recolecci&oacute;n, transporte, tratamiento y certificaci&oacute;n ambiental.<br><br>
+                                &#128172; Agenda una auditor&iacute;a gratuita de cumplimiento normativo.<br><br>
+                                <span class="hashtag">#LeyREP</span> <span class="hashtag">#ComplianceEcuador</span> <span class="hashtag">#RAEE</span> <span class="hashtag">#ImportadoresEc</span>
+                            </div>
+
+                            <div class="linkedin-post-image">
+                                <img src="img-linkedin-compliance.png" alt="Compliance normativo">
+                                <div class="ad-image-overlay ad-overlay-compliance">
+                                    <div class="ad-headline">&#9888;&#65039; Sanciones por incumplimiento hasta $50,000 USD</div>
+                                    <div class="ad-subheadline">Auditamos tu cumplimiento con la Ley REP &mdash; 100% gratuito para importadores</div>
+                                    <div class="ad-cta-button">
+                                        <i class="fas fa-clipboard-check"></i> Solicita tu Auditor&iacute;a Gratuita
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="linkedin-engagement">
+                                <div class="linkedin-reactions">
+                                    <span class="r-like">&#128077;</span>
+                                    <span class="r-insight">&#128161;</span>
+                                </div>
+                                <span class="eng-text">98</span>
+                            </div>
+                            <div class="linkedin-actions">
+                                <button class="linkedin-action-btn"><i class="fas fa-thumbs-up"></i> Me gusta</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-comment"></i> Comentar</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-retweet"></i> Repostear</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-bar">
+                    <div class="metric-item">
+                        <div class="metric-value teal">3.4%</div>
+                        <div class="metric-label">CTR Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value gold">$2.80</div>
+                        <div class="metric-label">CPC Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value green">82K</div>
+                        <div class="metric-label">Impresiones</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value teal">2.8K</div>
+                        <div class="metric-label">Clics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- ================================================================== -->
+    <!-- SECTION 2: LINKEDIN EVENT AD / WEBINAR -->
+    <!-- ================================================================== -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fas fa-video"></i>
+                Prueba A/B — Evento / Webinar
+            </div>
+            <h2 class="section-title">
+                Lead Magnet: <span class="highlight">Webinar RAEE</span>
+            </h2>
+            <p class="section-desc">
+                Dos enfoques para promocionar el webinar gratuito. La Variante A usa un tono institucional y la Variante B genera urgencia con fecha l&iacute;mite.
+            </p>
+        </div>
+
+        <div class="ab-grid">
+            <!-- VARIANT A -->
+            <div class="ab-card fade-in delay-1">
+                <div class="ab-card-header">
+                    <div class="ab-label variant-a">
+                        <i>A</i> Variante A &mdash; Tono Institucional
+                    </div>
+                    <span class="ab-hypothesis">Hip&oacute;tesis: Confianza profesional</span>
+                </div>
+                <div class="ab-card-body">
+                    <div class="linkedin-feed">
+                        <div class="linkedin-post">
+                            <div class="linkedin-post-header">
+                                <div class="linkedin-author">
+                                    <div class="linkedin-avatar" style="background:var(--dark-blue); font-size:11px;">R</div>
+                                    <div class="linkedin-author-info">
+                                        <h4>Reinicia <span style="color:var(--linkedin-blue); font-size:13px;">&#8226; 1st</span></h4>
+                                        <p>Sistema Colectivo RAEE Ecuador<br><span style="font-size:11px;">Sponsored &#183; <i class="fas fa-globe" style="font-size:10px;"></i></span></p>
+                                    </div>
+                                </div>
+                                <button class="linkedin-follow">+ Seguir</button>
+                            </div>
+                            <div class="sponsored-tag"><i class="fas fa-ad"></i> Promocionado</div>
+                            <div class="linkedin-post-text">
+                                &#127891; <strong>Te invitamos al Seminario Web gratuito:</strong><br><br>
+                                <strong>&ldquo;Impacto de la Ley REP en la Importaci&oacute;n de Equipos El&eacute;ctricos: C&oacute;mo Evitar Sanciones y Mejorar tu Huella de Carbono&rdquo;</strong><br><br>
+                                &#128197; Fecha: Pr&oacute;ximamente<br>
+                                &#128222; Plataforma: Zoom<br>
+                                &#127919; P&uacute;blico: Gerentes de Importaci&oacute;n, Log&iacute;stica y Sostenibilidad<br><br>
+                                &#128210; Temas:<br>
+                                &#8226; Obligaciones legales de los importadores bajo la Ley REP<br>
+                                &#8226; Proceso de gesti&oacute;n de RAEE paso a paso<br>
+                                &#8226; Casos de &eacute;xito de empresas que ya cumplen<br>
+                                &#8226; Auditor&iacute;a de cumplimiento: herramienta gratuita<br><br>
+                                <span class="hashtag">#WebinarRAEE</span> <span class="hashtag">#LeyREP</span> <span class="hashtag">#Sostenibilidad</span>
+                            </div>
+                            <div class="linkedin-post-image">
+                                <img src="img-linkedin-webinar.png" alt="Webinar RAEE">
+                                <div class="ad-image-overlay ad-overlay-dark">
+                                    <div style="background:rgba(255,200,9,0.9); color:var(--dark); padding:6px 18px; border-radius:6px; font-weight:700; font-size:12px; display:inline-flex; align-items:center; gap:6px; margin-bottom:12px; width:fit-content;">
+                                        <i class="fas fa-calendar-check"></i> SEMINARIO WEB GRATUITO
+                                    </div>
+                                    <div class="ad-headline" style="font-size:clamp(16px,2vw,22px);">Impacto de la Ley REP en la Importaci&oacute;n de Equipos El&eacute;ctricos</div>
+                                    <div class="ad-subheadline">C&oacute;mo evitar sanciones y mejorar tu huella de carbono</div>
+                                    <div class="ad-cta-button" style="background:var(--gold);">
+                                        <i class="fas fa-ticket-alt"></i> Reservar Mi Cupo
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="linkedin-engagement">
+                                <div class="linkedin-reactions">
+                                    <span class="r-like">&#128077;</span>
+                                    <span class="r-love">&#10084;&#65039;</span>
+                                </div>
+                                <span class="eng-text">76</span>
+                            </div>
+                            <div class="linkedin-actions">
+                                <button class="linkedin-action-btn"><i class="fas fa-thumbs-up"></i> Me gusta</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-comment"></i> Comentar</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-retweet"></i> Repostear</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-bar">
+                    <div class="metric-item">
+                        <div class="metric-value teal">4.2%</div>
+                        <div class="metric-label">CTR Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value gold">$2.50</div>
+                        <div class="metric-label">CPC Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value green">45K</div>
+                        <div class="metric-label">Impresiones</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value teal">1.9K</div>
+                        <div class="metric-label">Registros</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VARIANT B -->
+            <div class="ab-card fade-in delay-2">
+                <div class="ab-card-header">
+                    <div class="ab-label variant-b">
+                        <i>B</i> Variante B &mdash; Urgencia + Escasez
+                    </div>
+                    <span class="ab-hypothesis">Hip&oacute;tesis: Mayor registro por urgencia</span>
+                </div>
+                <div class="ab-card-body">
+                    <div class="linkedin-feed">
+                        <div class="linkedin-post">
+                            <div class="linkedin-post-header">
+                                <div class="linkedin-author">
+                                    <div class="linkedin-avatar" style="background:var(--dark-blue); font-size:11px;">R</div>
+                                    <div class="linkedin-author-info">
+                                        <h4>Reinicia <span style="color:var(--linkedin-blue); font-size:13px;">&#8226; 1st</span></h4>
+                                        <p>Sistema Colectivo RAEE Ecuador<br><span style="font-size:11px;">Sponsored &#183; <i class="fas fa-globe" style="font-size:10px;"></i></span></p>
+                                    </div>
+                                </div>
+                                <button class="linkedin-follow">+ Seguir</button>
+                            </div>
+                            <div class="sponsored-tag"><i class="fas fa-ad"></i> Promocionado</div>
+                            <div class="linkedin-post-text">
+                                &#128308; <strong>Solo quedan 50 cupos.</strong> No te quedes fuera.<br><br>
+                                La Agencia de Control ya est&aacute; auditando a importadores de equipos el&eacute;ctricos. &iquest;Tu empresa est&aacute; preparada?<br><br>
+                                <strong>&#128680; Webinar Urgente: &ldquo;Lo que los importadores NECESITAN saber sobre la Ley REP antes de la pr&oacute;xima auditor&iacute;a&rdquo;</strong><br><br>
+                                En 60 minutos aprender&aacute;s:<br>
+                                &#9989; Las 5 obligaciones que el 90% de importadores desconoce<br>
+                                &#9989; C&aacute;lculo real de multas por incumplimiento<br>
+                                &#9989; Paso a paso para cumplir en 30 d&iacute;as<br>
+                                &#9989; Auditor&iacute;a gratuita para asistentes<br><br>
+                                &#9203; Cupos limitados. Reg&iacute;strate hoy.<br><br>
+                                <span class="hashtag">#UrgenteRAEE</span> <span class="hashtag">#LeyREP</span> <span class="hashtag">#ComplianceEc</span>
+                            </div>
+                            <div class="linkedin-post-image">
+                                <img src="img-linkedin-raee.png" alt="RAEE urgencia">
+                                <div class="ad-image-overlay ad-overlay-gold">
+                                    <div style="background:#e74c3c; color:white; padding:6px 16px; border-radius:6px; font-weight:700; font-size:12px; display:inline-flex; align-items:center; gap:6px; margin-bottom:12px; width:fit-content; animation: pulse 2s infinite;">
+                                        <i class="fas fa-clock"></i> SOLO 50 CUPOS
+                                    </div>
+                                    <div class="ad-headline" style="font-size:clamp(16px,2vw,22px);">&#128680; &iquest;Est&aacute;s preparado para la auditor&iacute;a RAEE?</div>
+                                    <div class="ad-subheadline">Lo que el 90% de importadores desconoce sobre la Ley REP</div>
+                                    <div class="ad-cta-button" style="background:#e74c3c; color:white; box-shadow: 0 4px 15px rgba(231,76,60,0.4);">
+                                        <i class="fas fa-exclamation-triangle"></i> Registrarme Ahora
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="linkedin-engagement">
+                                <div class="linkedin-reactions">
+                                    <span class="r-like">&#128077;</span>
+                                    <span class="r-insight">&#128161;</span>
+                                </div>
+                                <span class="eng-text">64</span>
+                            </div>
+                            <div class="linkedin-actions">
+                                <button class="linkedin-action-btn"><i class="fas fa-thumbs-up"></i> Me gusta</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-comment"></i> Comentar</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-retweet"></i> Repostear</button>
+                                <button class="linkedin-action-btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-bar">
+                    <div class="metric-item">
+                        <div class="metric-value teal">5.1%</div>
+                        <div class="metric-label">CTR Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value gold">$2.20</div>
+                        <div class="metric-label">CPC Estimado</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value green">48K</div>
+                        <div class="metric-label">Impresiones</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value teal">2.4K</div>
+                        <div class="metric-label">Registros</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- ================================================================== -->
+    <!-- SECTION 3: LINKEDIN INMAIL MOCKUPS -->
+    <!-- ================================================================== -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fas fa-envelope-open-text"></i>
+                Prueba A/B — LinkedIn InMail
+            </div>
+            <h2 class="section-title">
+                LinkedIn InMail: <span class="highlight">Outreach Directo</span>
+            </h2>
+            <p class="section-desc">
+                Dos variantes de InMail para contacto directo 1:1 con Gerentes Generales del Top 200 de empresas importadoras m&aacute;s grandes.
+            </p>
+        </div>
+
+        <div class="ab-grid">
+            <!-- VARIANT A -->
+            <div class="ab-card fade-in delay-1">
+                <div class="ab-card-header">
+                    <div class="ab-label variant-a">
+                        <i>A</i> Variante A &mdash; Valor + Auditor&iacute;a
+                    </div>
+                    <span class="ab-hypothesis">Hip&oacute;tesis: Mayor respuesta por valor</span>
+                </div>
+                <div class="ab-card-body">
+                    <div class="inmail-mockup">
+                        <div class="inmail-header">
+                            <img src="https://reinicia.com.ec/wp-content/uploads/2022/05/cropped-logoRAE-19-192x192.png" alt="Reinicia" style="background:var(--dark-blue); padding:5px;">
+                            <div class="inmail-header-info">
+                                <h4>Reinicia &mdash; Sistema Colectivo RAEE</h4>
+                                <p>InMail &#183; a Gerente General</p>
+                            </div>
+                        </div>
+                        <div class="inmail-subject">
+                            <i class="fas fa-shield-alt"></i>
+                            Auditor&iacute;a gratuita de cumplimiento RAEE para [Empresa]
+                        </div>
+                        <div class="inmail-body">
+                            <p>Estimado/a [Nombre],</p>
+                            <p>Me dirijo a usted porque en Reinicia estamos trabajando con los principales importadores de equipos el&eacute;ctricos del Ecuador para asegurar su cumplimiento con la <strong>Ley de Gesti&oacute;n Integral de Residuos S&oacute;lidos (Ley REP)</strong>.</p>
+                            <p>Hemos notado que [Empresa] es uno de los actores m&aacute;s relevantes en el sector de importaciones. Por ello, me gustar&iacute;a ofrecerle una <strong>auditor&iacute;a gratuita de cumplimiento normativo RAEE</strong>, sin compromiso alguno.</p>
+                            <p>La auditor&iacute;a incluye:</p>
+                            <p>&#8226; Evaluaci&oacute;n del nivel de cumplimiento actual<br>
+                            &#8226; Identificaci&oacute;n de brechas regulatorias<br>
+                            &#8226; Plan de acci&oacute;n personalizado<br>
+                            &#8226; Estimaci&oacute;n de costos de implementaci&oacute;n</p>
+                            <p>Empresas como <strong>[Cliente de referencia del mismo sector]</strong> ya han optimizado su gesti&oacute;n con nosotros. Ser&iacute;a un placer conversar sobre c&oacute;mo podemos apoyar a [Empresa].</p>
+                            <p>&iquest;Tendr&iacute;a 15 minutos esta semana para una breve llamada?</p>
+                            <div class="inmail-signature">
+                                <strong>Coordinador de Marketing</strong>
+                                Reinicia &mdash; Sistema Colectivo RAEE<br>
+                                reinicia.com.ec
+                            </div>
+                        </div>
+                        <div class="inmail-cta-row">
+                            <button class="inmail-cta primary"><i class="fas fa-calendar-check" style="margin-right:6px;"></i> Agendar Reuni&oacute;n</button>
+                            <button class="inmail-cta secondary"><i class="fas fa-info-circle" style="margin-right:6px;"></i> M&aacute;s Informaci&oacute;n</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-bar">
+                    <div class="metric-item">
+                        <div class="metric-value teal">35%</div>
+                        <div class="metric-label">Tasa Apertura Est.</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value gold">18%</div>
+                        <div class="metric-label">Tasa Respuesta Est.</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value green">8%</div>
+                        <div class="metric-label">Tasa Reuni&oacute;n Est.</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value teal">$12</div>
+                        <div class="metric-label">Costo/Env&iacute;o</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VARIANT B -->
+            <div class="ab-card fade-in delay-2">
+                <div class="ab-card-header">
+                    <div class="ab-label variant-b">
+                        <i>B</i> Variante B &mdash; Exclusividad + Peer Proof
+                    </div>
+                    <span class="ab-hypothesis">Hip&oacute;tesis: Mayor respuesta por FOMO sectorial</span>
+                </div>
+                <div class="ab-card-body">
+                    <div class="inmail-mockup">
+                        <div class="inmail-header">
+                            <img src="https://reinicia.com.ec/wp-content/uploads/2022/05/cropped-logoRAE-19-192x192.png" alt="Reinicia" style="background:var(--dark-blue); padding:5px;">
+                            <div class="inmail-header-info">
+                                <h4>Reinicia &mdash; Sistema Colectivo RAEE</h4>
+                                <p>InMail &#183; a Gerente General</p>
+                            </div>
+                        </div>
+                        <div class="inmail-subject">
+                            <i class="fas fa-lock"></i>
+                            Invitaci&oacute;n exclusiva: [Competidor sector] ya cumple con RAEE
+                        </div>
+                        <div class="inmail-body">
+                            <p>Hola [Nombre],</p>
+                            <p>Soy [Nombre] de Reinicia. Le escribo porque several empresas del sector de [sector de la empresa] en Ecuador ya nos confiaron su gesti&oacute;n de residuos electr&oacute;nicos.</p>
+                            <p>La realidad del mercado es clara: la <strong>Agencia de Control est&aacute; intensificando las auditor&iacute;as</strong> a importadores de equipos el&eacute;ctricos. Las multas pueden superar los $50,000 USD.</p>
+                            <p>No le escribo para venderle. Le escribo porque creo que [Empresa] deber&iacute;a saber c&oacute;mo est&aacute;n manejando esto sus competidores directos:</p>
+                            <p>&#8226; <strong>[Competidor 1]</strong> implement&oacute; su plan RAEE con nosotros en 30 d&iacute;as<br>
+                            &#8226; <strong>[Competidor 2]</strong> redujo su riesgo regulatorio a cero<br>
+                            &#8226; Ambos mejoraron su reputaci&oacute;n corporativa ESG</p>
+                            <p>Puedo compartirle un resumen an&oacute;nimo de c&oacute;mo lo hicieron (sin revelar datos confidenciales). &iquest;Le interesar&iacute;a?</p>
+                            <p>Solo necesito 10 minutos de su tiempo.</p>
+                            <div class="inmail-signature">
+                                <strong>Coordinador de Marketing</strong>
+                                Reinicia &mdash; Sistema Colectivo RAEE<br>
+                                reinicia.com.ec
+                            </div>
+                        </div>
+                        <div class="inmail-cta-row">
+                            <button class="inmail-cta primary"><i class="fas fa-calendar-check" style="margin-right:6px;"></i> Agendar 10 Min</button>
+                            <button class="inmail-cta secondary"><i class="fas fa-file-download" style="margin-right:6px;"></i> Ver Caso de Estudio</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics-bar">
+                    <div class="metric-item">
+                        <div class="metric-value teal">48%</div>
+                        <div class="metric-label">Tasa Apertura Est.</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value gold">22%</div>
+                        <div class="metric-label">Tasa Respuesta Est.</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value green">12%</div>
+                        <div class="metric-label">Tasa Reuni&oacute;n Est.</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value teal">$12</div>
+                        <div class="metric-label">Costo/Env&iacute;o</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- ================================================================== -->
+    <!-- SECTION 4: EMAIL COLD OUTREACH SEQUENCE -->
+    <!-- ================================================================== -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fas fa-envelope"></i>
+                Secuencia Cold Email &mdash; 3 Pasos
+            </div>
+            <h2 class="section-title">
+                Email Marketing: <span class="highlight">Workflow de 3 Correos</span>
+            </h2>
+            <p class="section-desc">
+                Secuencia automatizada de cold outreach para los contactos enriquecidos. Cada correo tiene un prop&oacute;sito espec&iacute;fico y se env&iacute;a con intervalos de 5-7 d&iacute;as.
+            </p>
+        </div>
+
+        <!-- Email 1 -->
+        <div class="ab-card fade-in delay-1" style="max-width:750px; margin-bottom:30px;">
+            <div class="ab-card-header">
+                <div class="ab-label variant-a">
+                    <i>1</i> Correo de Presentaci&oacute;n y Valor
+                </div>
+                <span class="email-step-badge s1">D&iacute;a 1</span>
+            </div>
+            <div class="ab-card-body">
+                <div class="email-mockup" style="border-radius:0;">
+                    <div class="email-header-bar">
+                        <span><i class="fas fa-envelope" style="margin-right:6px;"></i> Para: gerente@empresa.com</span>
+                        <span>Enviado desde: marketing@reinicia.com.ec</span>
+                    </div>
+                    <div class="email-subject-line">
+                        Gesti&oacute;n de RAEE en [Empresa] &mdash; Cumplimiento normativo sin complicaciones
+                    </div>
+                    <div class="email-body-content">
+                        <p>Estimado/a [Nombre],</p>
+                        <p>En Reinicia ayudamos a empresas importadoras como [Empresa] a cumplir con la <strong>Ley de Gesti&oacute;n Integral de Residuos S&oacute;lidos</strong> de forma simple, profesional y sin interrumpir sus operaciones.</p>
+                        <p>Somos el <strong>primer sistema colectivo de RAEE en Ecuador</strong>, con m&aacute;s de 35 empresas activas que conf&iacute;an en nosotros para:</p>
+                        <p>&#8226; Recolecci&oacute;n y transporte de residuos electr&oacute;nicos<br>
+                        &#8226; Tratamiento y disposici&oacute;n final certificada<br>
+                        &#8226; Reportes de cumplimiento para auditor&iacute;as ambientales<br>
+                        &#8226; Mejora de la reputaci&oacute;n corporativa ESG</p>
+                        <p>Ning&uacute;n costo hasta que lo necesites. <strong>Te ofrecemos una auditor&iacute;a gratuita</strong> para evaluar tu nivel de cumplimiento actual.</p>
+                        <p>&iquest;Te gustar&iacute;a agendar una breve llamada de 15 minutos?</p>
+                        <a href="#" class="email-cta-inline">Agendar Llamada &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email 2 -->
+        <div class="ab-card fade-in delay-2" style="max-width:750px; margin-bottom:30px;">
+            <div class="ab-card-header">
+                <div class="ab-label variant-b">
+                    <i>2</i> Caso de &Eacute;xito Sectorial
+                </div>
+                <span class="email-step-badge s2">D&iacute;a 7</span>
+            </div>
+            <div class="ab-card-body">
+                <div class="email-mockup" style="border-radius:0;">
+                    <div class="email-header-bar">
+                        <span><i class="fas fa-envelope" style="margin-right:6px;"></i> Para: gerente@empresa.com</span>
+                        <span>Follow-up &middot; Si no abri&oacute; el correo 1</span>
+                    </div>
+                    <div class="email-subject-line">
+                        C&oacute;mo [Competidor Directo] cumpli&oacute; con la Ley REP en 30 d&iacute;as
+                    </div>
+                    <div class="email-body-content">
+                        <p>Hola [Nombre],</p>
+                        <p>Entiendo que su tiempo es valioso. Le escribo para compartirle brevemente c&oacute;mo <strong>una empresa similar a [Empresa] logr&oacute; cumplir con la normativa RAEE en solo 30 d&iacute;as</strong>.</p>
+                        <p><strong>El caso:</strong> Una importadora de equipos el&eacute;ctricos con m&aacute;s de 500 empleados estaba expuesta a sanciones de hasta $50,000 USD por incumplimiento de la Ley REP.</p>
+                        <p><strong>La soluci&oacute;n:</strong> Con Reinicia, implementaron un plan de gesti&oacute;n completo que incluy&oacute; recolecci&oacute;n programada, capacitaci&oacute;n a su equipo y certificaciones ambientales.</p>
+                        <p><strong>El resultado:</strong><br>
+                        &#9989; Cumplimiento normativo al 100% en 30 d&iacute;as<br>
+                        &#9989; Cero interrupciones operativas<br>
+                        &#9989; Mejora en su evaluaci&oacute;n ESG corporativa</p>
+                        <p>Puedo mostrarte los detalles en 10 minutos. &iquest;Cu&aacute;ndo te vendr&iacute;a bien?</p>
+                        <a href="#" class="email-cta-inline">Ver Caso Completo &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email 3 -->
+        <div class="ab-card fade-in delay-3" style="max-width:750px; margin-bottom:30px;">
+            <div class="ab-card-header">
+                <div class="ab-label variant-a">
+                    <i>3</i> Break-up + Invitaci&oacute;n Cierre
+                </div>
+                <span class="email-step-badge s3">D&iacute;a 14</span>
+            </div>
+            <div class="ab-card-body">
+                <div class="email-mockup" style="border-radius:0;">
+                    <div class="email-header-bar">
+                        <span><i class="fas fa-envelope" style="margin-right:6px;"></i> Para: gerente@empresa.com</span>
+                        <span>&Uacute;ltimo intento</span>
+                    </div>
+                    <div class="email-subject-line">
+                        &iquest;Es este el momento correcto para [Empresa]?
+                    </div>
+                    <div class="email-body-content">
+                        <p>[Nombre],</p>
+                        <p>Te he escrito un par de veces sobre c&oacute;mo Reinicia puede ayudar a [Empresa] con su gesti&oacute;n de RAEE. No quiero ser insistente, as&iacute; que este ser&aacute; mi &uacute;ltimo correo por ahora.</p>
+                        <p>Solo quiero dejarte algo de valor: <strong>nuestro Checklist gratuito de Cumplimiento RAEE para Importadores</strong>. Es una gu&iacute;a de 1 p&aacute;gina que te permite evaluar en 5 minutos si tu empresa est&aacute; en riesgo.</p>
+                        <p>Te dejo el enlace aqu&iacute; para cuando lo necesites.</p>
+                        <p>Si en alg&uacute;n momento quieres conversar sobre c&oacute;mo las empresas l&iacute;deres del sector est&aacute;n gestionando sus residuos electr&oacute;nicos, mi inbox siempre est&aacute; abierto.</p>
+                        <p>Saludos cordiales.</p>
+                        <a href="#" class="email-cta-inline">&#11015; Descargar Checklist RAEE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Visual -->
+        <div class="featured-card fade-in delay-4" style="max-width:750px; background:linear-gradient(135deg, rgba(0,90,136,0.12) 0%, rgba(57,192,206,0.06) 100%); border:1px solid rgba(57,192,206,0.12); border-radius:20px; padding:35px;">
+            <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+                <i class="fas fa-project-diagram" style="color:var(--teal);"></i> L&oacute;gica de la Secuencia
+            </h3>
+            <div style="display:flex; gap:15px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:180px; padding:18px; background:rgba(57,192,206,0.08); border-radius:14px; border-left:3px solid var(--teal);">
+                    <div style="font-weight:700; font-size:0.9rem; margin-bottom:6px; color:var(--teal);">Email 1 &mdash; Presentaci&oacute;n</div>
+                    <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">No abre &rarr; Email 2 con nuevo asunto. Abre pero no responde &rarr; Email 2 con caso de &eacute;xito.</div>
+                </div>
+                <div style="flex:1; min-width:180px; padding:18px; background:rgba(255,200,9,0.08); border-radius:14px; border-left:3px solid var(--gold);">
+                    <div style="font-weight:700; font-size:0.9rem; margin-bottom:6px; color:var(--gold);">Email 2 &mdash; Social Proof</div>
+                    <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">No abre &rarr; Email 3 break-up. Responde &rarr; Derivar a ejecutivo comercial.</div>
+                </div>
+                <div style="flex:1; min-width:180px; padding:18px; background:rgba(0,90,136,0.1); border-radius:14px; border-left:3px solid #5cb8d6;">
+                    <div style="font-weight:700; font-size:0.9rem; margin-bottom:6px; color:#5cb8d6;">Email 3 &mdash; Break-up + Valor</div>
+                    <div style="font-size:0.82rem; color:rgba(255,255,255,0.5); line-height:1.5;">Entregar checklist gratuito. Si no hay respuesta &rarr; marcar para SDR telemercadeo.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <!-- ================================================================== -->
+    <!-- SECTION 5: RECOMMENDATIONS -->
+    <!-- ================================================================== -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fas fa-lightbulb"></i>
+                Recomendaciones de Testeo
+            </div>
+            <h2 class="section-title">
+                Plan de <span class="highlight">Testing & Optimizaci&oacute;n</span>
+            </h2>
+            <p class="section-desc">
+                Recomendaciones para ejecutar las pruebas A/B de forma efectiva y optimizar seg&uacute;n resultados.
+            </p>
+        </div>
+
+        <div class="recommendation-box fade-in delay-1">
+            <h3><i class="fas fa-flask" style="color:var(--teal);"></i> Recomendaciones Clave para las Pruebas A/B</h3>
+            <div class="recommendation-grid">
+                <div class="recommendation-item">
+                    <div class="rec-icon teal"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h4>M&eacute;trica Principal: CTR</h4>
+                        <p>Para Sponsored Content, el CTR es la mejor m&eacute;trica para comparar variantes. Buscamos superar el benchmark de LinkedIn (0.5%) con un m&iacute;nimo de 2.5%.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon gold"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h4>Duraci&oacute;n M&iacute;nima: 2 Semanas</h4>
+                        <p>Cada prueba A/B debe correr al menos 14 d&iacute;as para obtener significancia estad&iacute;stica. No tomar decisiones antes de 1.000 impresiones por variante.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon teal"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h4>Audiencia Controlada</h4>
+                        <p>Segmentar las 2.000 empresas target entre las dos variantes de forma aleatoria para evitar sesgos. Mantener demographics id&eacute;nticos en ambas.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon gold"><i class="fas fa-redo"></i></div>
+                    <div>
+                        <h4>Iteraci&oacute;n Continua</h4>
+                        <p>La variante ganadora se convierte en la nueva "Control" para la siguiente prueba. Siempre estar testeando: copy, imagen, CTA, audiencia.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon teal"><i class="fas fa-image"></i></div>
+                    <div>
+                        <h4>Testeo de Im&aacute;genes</h4>
+                        <p>Probar al menos 4 im&aacute;genes por cada copy: fotos reales de clientes, infograf&iacute;as, data visual, y fotos de instalaciones Reinicia.</p>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <div class="rec-icon gold"><i class="fas fa-bullseye"></i></div>
+                    <div>
+                        <h4>Presupuesto Sugerido</h4>
+                        <p>$800-1.200 USD/mes en LinkedIn Ads durante Fase 2-3. Distribuir 60% Sponsored Content, 25% InMail, 15% retargeting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ANIMATIONS ===== -->
+    <script>
+    (function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    })();
+    </script>
+
+</body>
+</html>
